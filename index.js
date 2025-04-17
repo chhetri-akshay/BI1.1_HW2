@@ -64,7 +64,7 @@ app.use(cors(corsOptions));
     
     async function findByName(hotelName) {
         try{
-            const hotelByName = await HotelList.find({name: hotelName})
+            const hotelByName = await HotelList.findOne({name: hotelName})
             return hotelByName
         } catch(error) {
             throw(error)
