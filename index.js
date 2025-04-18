@@ -28,6 +28,7 @@ app.use(cors(corsOptions));
     }
 
     app.post("/hotels", async(req, res) => {
+        console.log("Received /hotels POST request. Body:", req.body)
         try {
         const savedHotel = await createNewHotel(req.body)
         if(savedHotel){
@@ -168,7 +169,7 @@ app.use(cors(corsOptions));
   app.delete("/hotels/:hotelId", async (req, res) => {
     try{
         const deletedHotel = await deleteHotel(req.params.hotelId)
-        if(deleteHotel){
+        if(deletedHotel){
             res.status(201).json({message: "Hotel deleted successfully."})
         } else {
             res.status(404).json({error: "Hotel Not found"})
